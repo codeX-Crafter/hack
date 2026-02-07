@@ -1,7 +1,3 @@
-"""
-FastAPI Server: Main application for GPS-denied UAV navigation simulation
-Exposes REST API endpoints for React frontend integration
-"""
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,9 +7,8 @@ import json
 
 from src.Simulator import Simulator
 
-# ===== FASTAPI APP SETUP =====
 app = FastAPI(
-    title="NAVDEN - GPS-Denied UAV Navigation",
+    title="STELLA - When GPS Fails",
     description="Real-time physics-based UAV navigation simulation with Kalman filter sensor fusion",
     version="1.0.0"
 )
@@ -21,20 +16,17 @@ app = FastAPI(
 # Enable CORS for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to your frontend URL in production
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ===== PYDANTIC MODELS =====
 class SimulationRequest(BaseModel):
-    """Request model for simulation"""
     duration: float = 90.0
     dt: float = 0.1
 
 class StateResponse(BaseModel):
-    """Response model for current state"""
     true_position: List[float]
     estimated_position: List[float]
     velocity: List[float]
@@ -47,29 +39,21 @@ class StateResponse(BaseModel):
     current_waypoint: List[float]
     mission_progress: float
 
-# ===== GLOBAL SIMULATOR INSTANCE =====
 simulator = None
 
 def init_simulator():
-    """Initialize simulator"""
     global simulator
     simulator = Simulator()
     return simulator
 
-# ===== API ENDPOINTS =====
 
 @app.on_event("startup")
 async def startup_event():
-    """Initialize simulator on startup"""
     init_simulator()
-    print("✓ NAVDEN Backend initialized")
+    print("✓ STELLA Backend initialized")
 
 @app.get("/health")
 async def health_check():
-    """
-    Health check endpoint
-    Returns server status
-    """
     return {
         "status": "healthy",
         "service": "NAVDEN Navigation Engine",
@@ -78,12 +62,8 @@ async def health_check():
 
 @app.get("/info")
 async def backend_info():
-    """
-    Get backend information
-    Returns system info and capabilities
-    """
     return {
-        "service": "NAVDEN - GPS-Denied UAV Navigation System",
+        "service": "STELLA - When GPS Fails",
         "version": "1.0.0",
         "capabilities": [
             "Physics-based UAV simulation",
@@ -111,17 +91,6 @@ async def backend_info():
 
 @app.post("/run-simulation")
 async def run_simulation(request: SimulationRequest = None):
-    """
-    Run complete simulation
-    
-    Request body:
-    {
-        "duration": 90.0,  # seconds
-        "dt": 0.1         # time step
-    }
-    
-    Returns: Complete simulation results with trajectory, metrics, and analysis
-    """
     try:
         if request is None:
             request = SimulationRequest()
@@ -148,11 +117,6 @@ async def run_simulation(request: SimulationRequest = None):
 
 @app.post("/step-simulation")
 async def step_simulation():
-    """
-    Execute one simulation step and return current state
-    
-    Returns: Current state in your exact JSON format
-    """
     try:
         global simulator
         if simulator is None:
@@ -176,11 +140,6 @@ async def step_simulation():
 
 @app.get("/current-state")
 async def get_current_state():
-    """
-    Get current simulation state (your exact JSON format)
-    
-    Returns the most recent state snapshot
-    """
     try:
         global simulator
         if simulator is None:
@@ -233,11 +192,6 @@ async def get_trajectory(
 
 @app.get("/metrics")
 async def get_metrics():
-    """
-    Get current mission metrics
-    
-    Returns: Mission statistics and performance metrics
-    """
     try:
         global simulator
         if simulator is None:
@@ -269,11 +223,6 @@ async def get_metrics():
 
 @app.get("/jamming-analysis")
 async def get_jamming_analysis():
-    """
-    Get GPS jamming analysis
-    
-    Returns: Detailed analysis of jamming impact
-    """
     try:
         global simulator
         if simulator is None:
@@ -330,11 +279,6 @@ async def get_jamming_analysis():
 
 @app.post("/reset")
 async def reset_simulation():
-    """
-    Reset simulation to initial state
-    
-    Returns: Confirmation of reset
-    """
     try:
         global simulator
         simulator = Simulator()
@@ -348,10 +292,8 @@ async def reset_simulation():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
 
-# ===== ROOT ENDPOINT =====
 @app.get("/")
 async def root():
-    """Root endpoint with API documentation"""
     return {
         "service": "NAVDEN - GPS-Denied UAV Navigation System",
         "message": "Welcome to NAVDEN Backend API",
@@ -376,7 +318,6 @@ async def root():
         }
     }
 
-# ===== ERROR HANDLERS =====
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):
     return {
@@ -385,13 +326,12 @@ async def http_exception_handler(request, exc):
         "detail": exc.detail
     }
 
-# ===== FOR DEVELOPMENT =====
 if __name__ == "__main__":
     import uvicorn
     
-    print("Starting NAVDEN Backend Server...")
+    print("Starting STELLA Backend Server...")
     print("=" * 60)
-    print("Service: NAVDEN - GPS-Denied UAV Navigation")
+    print("Service: STELLA - When GPS Fails")
     print("Version: 1.0.0")
     print("=" * 60)
     print("\nStarting server on http://localhost:8000")
