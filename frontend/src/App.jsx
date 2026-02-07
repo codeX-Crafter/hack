@@ -53,7 +53,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex h-screen bg-[#060b13] overflow-hidden text-[#94a3b8] font-mono selection:bg-cyan-500/30">
+<div className="grid grid-cols-[80px_1fr] lg:grid-cols-[288px_1fr] h-screen bg-[#060b13] overflow-hidden">
       {/* PERSISTENT SIDEBAR */}
       <nav className="w-20 lg:w-72 border-r border-white/5 flex flex-col bg-[#0a0f18] z-50">
         <div className="p-6  flex items-center gap-0 border-b border-white/5">
