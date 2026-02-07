@@ -55,8 +55,7 @@ async def websocket_endpoint(websocket: WebSocket):
     # Client connects here
     # Receives real-time updates
     # Can handle multiple clients
-
-
+    
 @app.on_event("startup")
 async def startup_event():
     init_simulator()
