@@ -46,6 +46,12 @@ def init_simulator():
     simulator = Simulator()
     return simulator
 
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    # Client connects here
+    # Receives real-time updates
+    # Can handle multiple clients
+
 
 @app.on_event("startup")
 async def startup_event():
