@@ -1,3 +1,4 @@
+import TrajectoryPlot from './TrajectoryPlot';
 useEffect(() => {
   connectWebSocket();  // Connect on mount
 }, []);
