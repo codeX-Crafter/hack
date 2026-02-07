@@ -59,6 +59,8 @@ class Simulator:
                 measurements['optical_flow']['vx'],
                 measurements['optical_flow']['vy']
             )
+            
+        self.physics.set_waypoint(self.mission.get_current_waypoint())
         
         self.physics.step(self.dt)
         
