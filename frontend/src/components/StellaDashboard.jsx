@@ -13,3 +13,11 @@ const handleWebSocketMessage = (data) => {
   setCurrentData(data.data);
   // UI updates automatically
 };
+
+{/* Trajectory Visualization */}
+{trajectoryData && trajectoryData.length > 0 && (
+  <TrajectoryPlot 
+    trajectoryData={trajectoryData} 
+    isRunning={running} 
+  />
+)}
