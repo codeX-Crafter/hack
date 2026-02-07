@@ -9,7 +9,7 @@ from pydantic import BaseModel
 from typing import List, Dict, Any
 import json
 
-from src_Simulator import Simulator
+from src.Simulator import Simulator
 
 # ===== FASTAPI APP SETUP =====
 app = FastAPI(
