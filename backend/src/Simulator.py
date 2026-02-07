@@ -59,12 +59,13 @@ class Simulator:
                 measurements['optical_flow']['vx'],
                 measurements['optical_flow']['vy']
             )
-            
+
+        self.mission.update((true_x, true_y, true_z))
+        
         self.physics.set_waypoint(self.mission.get_current_waypoint())
         
         self.physics.step(self.dt)
         
-        self.mission.update((true_x, true_y, true_z))
         
         estimated_state = self.navigation.get_state()
         
