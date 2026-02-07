@@ -4,7 +4,7 @@ Fuses multiple sensors to estimate position during GPS denial
 """
 
 import math
-from src_Matrix import Matrix
+from src.Matrix import Matrix
 
 
 class NavigationEngine:
