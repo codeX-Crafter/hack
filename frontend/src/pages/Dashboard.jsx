@@ -86,7 +86,7 @@ const Dashboard = () => {
       {/* TOP BAR / NAVIGATION */}
       <header className="flex justify-between items-center mb-6 border-b border-white/5 pb-2">
         <div className="flex items-center gap-8">
-          <div className="text-white font-bold italic text-sm">STELLA_NAV <span className="text-cyan-500/50 font-light ml-1">v4.0</span></div>
+          <div className="text-white font-bold italic text-sm">Dashboard <span className="text-cyan-500/50 font-light ml-1">v1.0</span></div>
           <div className="flex items-center gap-2 italic text-cyan-500"><Activity size={14}/> STATUS: OPERATIONAL</div>
         </div>
         <div className="flex items-center gap-4">
