@@ -4,10 +4,10 @@ Runs the complete simulation and outputs state in your JSON format
 """
 
 import math
-from src_PhysicsEngine import PhysicsEngine
-from src_SensorSimulator import SensorSimulator
-from src_NavigationEngine import NavigationEngine
-from src_MissionSimulator import MissionSimulator
+from src.PhysicsEngine import PhysicsEngine
+from src.SensorSimulator import SensorSimulator
+from src.NavigationEngine import NavigationEngine
+from src.MissionSimulator import MissionSimulator
 
 
 class Simulator:
