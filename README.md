@@ -1,9 +1,5 @@
 # Project STELLA  
 ## GPS-Jammed Autonomous Navigation  
-### Kalman Filter-Based UAV Navigation System
-
----
-
 ## Problem Statement
 
 **Problem:**  
@@ -18,12 +14,11 @@ Enable an Unmanned Aerial Vehicle (UAV) to complete a waypoint-based mission usi
 - Compass (magnetometer)  
 - Optional: Pre-loaded map matching  
 
----
-
 ## Overview
 
 **STELLA** is a high-fidelity navigation and mission planning framework for UAVs operating in GNSS-denied or jammed environments.  
 The system emphasizes **multi-sensor fusion using Kalman Filter algorithms** to estimate position, velocity, and heading without relying on GPS.
+
 
 <img width="1850" height="841" alt="image" src="https://github.com/user-attachments/assets/3701acf5-125f-46e7-9d2d-2ff8981c43b5" />
 
@@ -32,8 +27,9 @@ STELLA provides:
 - Mission-level planning and visualization  
 - Post-mission performance analysis  
 - Robust behavior under electronic warfare conditions  
+<img width="957" height="249" alt="image" src="https://github.com/user-attachments/assets/680fba56-e04f-451d-8d88-4f2c49fa719b" />
 
----
+
 
 ## System Architecture
 
@@ -52,7 +48,7 @@ The Mission Planner module enables operators to define and validate flight missi
   - Battery status  
   - Secure communication handshake  
 
----
+
 
 ### 2. Real-Time Dashboard
 
@@ -66,7 +62,6 @@ Command-and-control interface for live mission monitoring.
 - **System Logs:**  
   Terminal-style telemetry and mission event output.
 
----
 
 ### 3. Post-Mission Analytics
 
@@ -78,7 +73,6 @@ Debriefing and evaluation tools after mission completion.
 - **Stability Metrics:**  
   Tracks Kalman Filter convergence and sensor fusion efficiency over time.
 
----
 
 ## Technical Specifications
 
@@ -98,7 +92,6 @@ The core estimation engine uses a **Discrete-Time Kalman Filter (DTKF)**.
 - Dynamic adjustment of Measurement Noise Covariance (R) when interference is detected  
 - Increased reliance on inertial and vision-based sensors under GPS loss  
 
----
 
 ## Visual Identity
 <img width="1848" height="824" alt="image" src="https://github.com/user-attachments/assets/232db4f6-7c03-4eb9-aa1e-d91a1b64d955" />
@@ -119,7 +112,7 @@ Optimized for:
 - High contrast  
 - Situational clarity  
 
----
+
 
 ## Frontend Stack
 
@@ -128,7 +121,6 @@ Optimized for:
 - **Visualization:** Recharts (SVG-based plotting)  
 - **Icons:** Lucide React  
 
----
 
 ## Data Structure
 
