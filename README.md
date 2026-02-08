@@ -1,4 +1,6 @@
 # Project STELLA  
+<img width="957" height="249" alt="image" src="https://github.com/user-attachments/assets/680fba56-e04f-451d-8d88-4f2c49fa719b" />
+
 ## GPS-Jammed Autonomous Navigation  
 ## Problem Statement
 
@@ -27,7 +29,6 @@ STELLA provides:
 - Mission-level planning and visualization  
 - Post-mission performance analysis  
 - Robust behavior under electronic warfare conditions  
-<img width="957" height="249" alt="image" src="https://github.com/user-attachments/assets/680fba56-e04f-451d-8d88-4f2c49fa719b" />
 
 
 
